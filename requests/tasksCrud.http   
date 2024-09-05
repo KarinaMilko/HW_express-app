@@ -1,0 +1,54 @@
+POST http://localhost:5000/tasks HTTP/1.1
+Content-Type:application/json
+
+  {
+    "title": "Task 4",
+    "isDone": true
+  }
+
+###
+
+GET  http://localhost:5000/tasks HTTP/1.1
+
+###
+
+# 200 OK
+GET  http://localhost:5000/tasks/74bb5871-e773-4479-a982-8777dd69083c HTTP/1.1
+
+###
+
+# 404 Not Found
+
+GET  http://localhost:5000/tasks/4bb5871-e773-4479-a982-8777dd69083c HTTP/1.1
+
+###
+
+# 200 OK
+PATCH http://localhost:5000/tasks/74bb5871-e773-4479-a982-8777dd69083c HTTP/1.1
+Content-Type: application/json
+
+  {
+    "title": "Task 25",
+    "isDone": true
+  }
+
+###  
+
+# 404 Not Found
+PATCH http://localhost:5000/tasks/84bb5871-e773-4479-a982-8777dd69083c HTTP/1.1
+Content-Type: application/json
+
+  {
+    "title": "Task 25",
+    "isDone": true
+  }
+
+###
+
+# 204
+DELETE http://localhost:5000/tasks/74bb5871-e773-4479-a982-8777dd69083c HTTP/1.1
+
+###
+
+# 404
+DELETE http://localhost:5000/tasks/4bb5871-e773-4479-a982-8777dd69083c HTTP/1.1
