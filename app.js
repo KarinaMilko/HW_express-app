@@ -1,19 +1,18 @@
 const express = require("express");
-const {
-  createTask,
-  getTask,
-  getTaskById,
-  updateTaskById,
-  deleteTaskById,
-} = require("./controllers/tasksController");
+const { tasksController } = require("./controllers");
+const { validate } = require("./middleware");
 
 const app = express();
 app.use(express.json());
 
-app.post("/tasks", createTask);
-app.get("/tasks", getTask);
-app.get("/tasks/:id", getTaskById);
-app.patch("/tasks/:id", updateTaskById);
-app.delete("/tasks/:id", deleteTaskById);
+app.post("/tasks", validate.validateTaskOnCreate, tasksController.createTask);
+app.get("/tasks", tasksController.getTask);
+app.get("/tasks/:id", tasksController.getTaskById);
+app.patch(
+  "/tasks/:id",
+  validate.validateTaskOnUpdate,
+  tasksController.updateTaskById
+);
+app.delete("/tasks/:id", tasksController.deleteTaskById);
 
 module.exports = app;

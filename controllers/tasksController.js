@@ -1,23 +1,27 @@
+// const { tasks } = require("./../model");
+const { format } = require("date-fns");
 const { v4: uuidv4 } = require("uuid");
 
 const tasks = [
   {
     id: uuidv4(),
     title: "Task 1",
+    deadline: format(new Date(), "Y-MM-dd"),
     isDone: false,
   },
   {
     id: "74bb5871-e773-4479-a982-8777dd69083c",
     title: "Task 2",
+    deadline: "2024-11-18",
     isDone: false,
   },
   {
     id: uuidv4(),
     title: "Task 3",
+    deadline: format(new Date(), "Y-MM-dd"),
     isDone: false,
   },
 ];
-
 module.exports.createTask = (req, res) => {
   const { body } = req;
   tasks.push({ ...body, id: uuidv4() });
