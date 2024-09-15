@@ -1,1 +1,1 @@
-// module.exports.task = require("./task");
+module.exports.task = require("./task");

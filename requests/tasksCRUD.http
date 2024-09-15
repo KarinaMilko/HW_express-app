@@ -16,7 +16,7 @@ Content-Type:application/json
   {
     "title": "Task 4",
     "deadline":"2022-10-08",
-    "isDone": 7
+    "isDone": true
   }
 
 ###200
