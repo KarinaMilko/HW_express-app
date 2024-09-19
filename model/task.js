@@ -31,11 +31,13 @@ class TasksDB {
     return this.tasks[this.tasks.length - 1];
   }
 
-  getTask() {}
+  getTask() {
+    return this.tasks;
+  }
 
   getTaskById(id) {
     const foundTask = this.tasks.findIndex((t) => t.id === id);
-    return foundTask === -1 ? null : this.tasks[foundIndex];
+    return foundTask === -1 ? null : this.tasks[foundTask];
   }
 
   updateTaskById(id, values) {
